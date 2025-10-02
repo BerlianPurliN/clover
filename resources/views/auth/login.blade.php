@@ -1,0 +1,73 @@
+@extends('layouts.app')
+
+@section('content')
+
+<section class="flex items-center justify-center">
+    <div class="w-full max-w-lg">
+        <h2 class="text-4xl font-bold text-center text-[#bca262] mb-8 tracking-wider">
+            LOGIN
+        </h2>
+
+        <form method="POST" action="{{ route('loginpost') }}">
+            @csrf
+
+            {{-- Kontainer form dengan border --}}
+            <div class="border-2 border-[#5e7c64] rounded-3xl p-8 md:p-10 space-y-6">
+
+                {{-- Email --}}
+                <div>
+                    <label for="email" class="block font-semibold text-lg text-[#3b5440]">Email</label>
+                    <input id="email" type="email" name="email" value="{{ old('email') }}" required autofocus
+                        class="w-full bg-transparent border-0 border-b-2 border-[#5e7c64] focus:ring-0 focus:border-[#3b5440] py-2 text-lg">
+
+                    {{-- Menampilkan error validasi atau error login gagal --}}
+                    @error('email')
+                    <span class="text-red-500 text-sm mt-1">{{ $message }}</span>
+                    @enderror
+                </div>
+
+                {{-- Password --}}
+                <div>
+                    <label for="password" class="block font-semibold text-lg text-[#3b5440]">Password</label>
+                    <input id="password" type="password" name="password" required
+                        class="w-full bg-transparent border-0 border-b-2 border-[#5e7c64] focus:ring-0 focus:border-[#3b5440] py-2 text-lg">
+                    @error('password')
+                    <span class="text-red-500 text-sm mt-1">{{ $message }}</span>
+                    @enderror
+                </div>
+
+                {{-- Tambahan: Lupa Password & Ingat Saya (Opsional) --}}
+                <div class="flex items-center justify-between text-sm">
+                    <label for="remember" class="flex items-center">
+                        <input type="checkbox" name="remember" id="remember" class="rounded border-gray-300 text-[#3b5440] shadow-sm focus:ring-[#5e7c64]">
+                        <span class="ml-2 text-gray-600">Remember me</span>
+                    </label>
+
+                    <a href="#" class="font-medium text-[#3b5440] hover:underline">
+                        Forgot Password?
+                    </a>
+                </div>
+
+                {{-- Tombol Submit --}}
+                <div class="pt-6">
+                    <button type="submit" class="w-full bg-[#3b5440] text-white font-bold py-3 px-6 rounded-full hover:bg-opacity-90 transition-all text-lg">
+                        LOGIN
+                    </button>
+                </div>
+
+            </div>
+        </form>
+
+        {{-- Link ke Halaman Registrasi --}}
+        <div class="text-center mt-6">
+            <p class="text-gray-600">
+                Don't have an account?
+                <a href="{{ route('register') }}" class="font-semibold text-[#3b5440] hover:underline">
+                    Register here
+                </a>
+            </p>
+        </div>
+    </div>
+</section>
+
+@endsection
