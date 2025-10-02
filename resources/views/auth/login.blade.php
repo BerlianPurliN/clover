@@ -1,10 +1,14 @@
 @extends('layouts.app')
 
+@push('button-login')
+<a href="{{ route('register') }}" class="text-white bg-forestgreen font-semibold rounded-xl text-sm px-6 py-3 text-center">Register</a>
+@endpush
+
 @section('content')
 
-<section class="flex items-center justify-center">
+<section class="flex items-center justify-center px-10">
     <div class="w-full max-w-lg">
-        <h2 class="text-4xl font-bold text-center text-[#bca262] mb-8 tracking-wider">
+        <h2 class="text-2xl font-bold text-center text-[#e2c044] mb-8 tracking-wider">
             LOGIN
         </h2>
 
@@ -16,9 +20,9 @@
 
                 {{-- Email --}}
                 <div>
-                    <label for="email" class="block font-semibold text-lg text-[#3b5440]">Email</label>
+                    <label for="email" class="block font-semibold text-md text-[#3b5440]">Email</label>
                     <input id="email" type="email" name="email" value="{{ old('email') }}" required autofocus
-                        class="w-full bg-transparent border-0 border-b-2 border-[#5e7c64] focus:ring-0 focus:border-[#3b5440] py-2 text-lg">
+                        class="w-full bg-transparent border-0 border-b-2 border-[#5e7c64] focus:ring-0 focus:border-[#3b5440] py-2 text-md">
 
                     {{-- Menampilkan error validasi atau error login gagal --}}
                     @error('email')
@@ -28,9 +32,9 @@
 
                 {{-- Password --}}
                 <div>
-                    <label for="password" class="block font-semibold text-lg text-[#3b5440]">Password</label>
+                    <label for="password" class="block font-semibold text-md text-[#3b5440]">Password</label>
                     <input id="password" type="password" name="password" required
-                        class="w-full bg-transparent border-0 border-b-2 border-[#5e7c64] focus:ring-0 focus:border-[#3b5440] py-2 text-lg">
+                        class="w-full bg-transparent border-0 border-b-2 border-[#5e7c64] focus:ring-0 focus:border-[#3b5440] py-2 text-md">
                     @error('password')
                     <span class="text-red-500 text-sm mt-1">{{ $message }}</span>
                     @enderror
@@ -50,7 +54,7 @@
 
                 {{-- Tombol Submit --}}
                 <div class="pt-6">
-                    <button type="submit" class="w-full bg-[#3b5440] text-white font-bold py-3 px-6 rounded-full hover:bg-opacity-90 transition-all text-lg">
+                    <button type="submit" class="w-full bg-[#3b5440] text-white font-bold py-3 px-6 rounded-full hover:bg-opacity-90 transition-all text-lg cursor-pointer">
                         LOGIN
                     </button>
                 </div>
@@ -59,14 +63,7 @@
         </form>
 
         {{-- Link ke Halaman Registrasi --}}
-        <div class="text-center mt-6">
-            <p class="text-gray-600">
-                Don't have an account?
-                <a href="{{ route('register') }}" class="font-semibold text-[#3b5440] hover:underline">
-                    Register here
-                </a>
-            </p>
-        </div>
+
     </div>
 </section>
 

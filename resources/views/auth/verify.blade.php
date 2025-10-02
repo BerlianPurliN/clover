@@ -44,9 +44,12 @@
                 </form>
 
 
-                <a href="{{ route('logout') }}" class="text-gray-500 hover:text-gray-700 hover:underline font-medium">
-                    Kembali ke Halaman Login
-                </a>
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <button type="submit" class="text-gray-500 hover:text-gray-700 hover:underline font-medium">
+                        Kembali ke HomePage
+                    </button>
+                </form>
             </div>
         </div>
     </main>

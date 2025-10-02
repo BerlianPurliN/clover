@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('mobile_phone')->nullable();
             $table->string('gender')->nullable();
             $table->date('dob')->nullable();
+            $table->string('role')->default('customer');
             $table->rememberToken();
             $table->timestamps();
         });

@@ -27,6 +27,7 @@ class AuthController extends Controller
             'mobile_phone' => 'nullable|string|max:15',
             'gender' => 'nullable|string|max:10',
             'dob' => 'nullable|date',
+            'role' => 'nullable|string|max:20',
         ]);
 
         // 2. Buat user baru
@@ -38,6 +39,7 @@ class AuthController extends Controller
             'mobile_phone' => $validated['mobile_phone'],
             'gender' => $validated['gender'],
             'dob' => $validated['dob'],
+            'role' => $validated['role'] ?? 'customer',
         ]);
 
         // 3. Login user yang baru dibuat

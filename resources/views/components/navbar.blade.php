@@ -31,6 +31,10 @@
     <div class="h-full px-3 py-4 overflow-y-auto">
         <ul class="space-y-2 font-medium">
             <li>
+                <a href="{{ url('/') }}" class="flex items-center p-2 text-white rounded-lg hover:bg-green-700">
+                    <span class="ml-3">Home</span>
+                </a>
+            <li>
                 <a href="{{ url('/about-us') }}" class="flex items-center p-2 text-white rounded-lg hover:bg-green-700">
                     <span class="ml-3">About Us</span>
                 </a>

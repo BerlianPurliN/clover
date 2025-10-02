@@ -1,10 +1,14 @@
 @extends('layouts.app')
 
+@push('button-login')
+<a href="{{ route('loginpage') }}" class="text-white bg-forestgreen font-semibold rounded-xl text-sm px-6 py-3 text-center">Login</a>
+@endpush
+
 @section('content')
 
-<section class="flex items-center justify-center px-6">
+<section class="flex items-center justify-center px-10 pb-7">
     <div class="w-full max-w-lg">
-        <h2 class="text-2xl font-bold text-center text-[#bca262] mb-8 tracking-wider">
+        <h2 class="text-2xl font-bold text-center text-[#e2c044] mb-8 tracking-wider">
             REGISTRATION
         </h2>
 
@@ -97,13 +101,14 @@
 
                 {{-- Tombol Submit --}}
                 <div class="pt-6">
-                    <button type="submit" class="w-full bg-[#3b5440] text-white font-bold py-3 px-6 rounded-full hover:bg-opacity-90 transition-all text-lg">
+                    <button type="submit" class="w-full bg-[#3b5440] text-white font-bold py-3 px-6 rounded-full hover:bg-opacity-90 transition-all text-lg cursor-pointer">
                         SUBMIT
                     </button>
                 </div>
 
             </div>
         </form>
+
     </div>
 </section>
 
