@@ -8,6 +8,8 @@
 </head>
 
 <body>
+
+    <h1>user dashboard</h1>
     <form method="POST" action="{{ route('logout') }}">
         @csrf
         <button type="submit" class="text-gray-500 hover:text-gray-700 hover:underline font-medium">

@@ -68,8 +68,14 @@ class AuthController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            // Jika berhasil, redirect ke halaman tujuan
-            return redirect()->intended('dashboard'); // intended() akan mengarahkan ke halaman yg tadinya mau diakses sebelum login
+            $user = Auth::user();
+            if ($user->role === 'admin') {
+                return redirect()->intended('admin/dashboard');
+            } else if ($user->role === 'customer') {
+                return redirect()->intended('/dashboard');
+            }
+
+            return redirect('/');
         }
 
         // 3. Jika gagal, kembali ke form login dengan pesan error
@@ -87,6 +93,6 @@ class AuthController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/'); 
+        return redirect('/');
     }
 }

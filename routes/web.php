@@ -6,7 +6,7 @@ use App\Http\Controllers\AuthController;
 
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
-// Impor class verifikasi bawaan Laravel
+
 
 // --- Rute Publik (Bisa Diakses Siapa Saja) ---
 Route::get('/', function () {
@@ -38,8 +38,12 @@ Route::middleware('guest')->group(function () {
 Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::get('/dashboard', function () {
-        return view('pages.dashboard.user.index');
-    })->name('dashboard');
+        return view('pages.dashboard.customer.index');
+    })->name('customer.dashboard');
+
+    Route::get('/admin/dashboard', function () {
+        return view('pages.dashboard.admin.index');
+    })->name('admin.dashboard')->middleware('role:admin');
 });
 
 Route::middleware('auth')->group(function () {
