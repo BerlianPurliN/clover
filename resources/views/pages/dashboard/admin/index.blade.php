@@ -1,20 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.app')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+@section('content')
 
-<body>
+<section>
     <h1>admin dashboard</h1>
-    <form method="POST" action="{{ route('logout') }}">
-        @csrf
-        <button type="submit" class="text-gray-500 hover:text-gray-700 hover:underline font-medium">
-            Logout
-        </button>
-    </form>
-</body>
+</section>
 
-</html>
+@endsection
+
+@push('scripts')
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const carousel = document.getElementById('hero-carousel');
+        if (carousel) {
+            const options = {
+                defaultPosition: 0,
+                interval: 3000,
+                indicators: {
+                    items: [{
+                            position: 0,
+                            el: carousel.querySelector('[data-carousel-slide-to="0"]')
+                        },
+                        {
+                            position: 1,
+                            el: carousel.querySelector('[data-carousel-slide-to="1"]')
+                        },
+                        {
+                            position: 2,
+                            el: carousel.querySelector('[data-carousel-slide-to="2"]')
+                        }
+                    ]
+                }
+            };
+
+            const carouselInstance = new Carousel(carousel, options);
+            carouselInstance.cycle();
+        }
+    });
+</script>
+@endpush

@@ -24,6 +24,7 @@
                     <ul class="list-disc list-inside text-xs sm:text-base font-semibold ml-2 sm:ml-4">
                         <li>1 match</li>
                     </ul>
+                    <br>
                 </div>
             </div>
         </div>
@@ -47,6 +48,7 @@
                     <ul class="list-disc list-inside text-xs sm:text-base font-semibold ml-2 sm:ml-4">
                         <li>4 match</li>
                         <li>2 group meetings</li>
+                        <br>
                     </ul>
                 </div>
             </div>

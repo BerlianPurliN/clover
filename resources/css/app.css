@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 @import "flowbite/src/themes/default";
 
 @plugin "flowbite/plugin";
@@ -10,9 +10,10 @@
 @source "../../node_modules/flowbite";
 
 @theme {
-  --color-deepgreen: #1B352C;
-  --color-forestgreen: #2E5E4E;
-  --color-purewhite: #FFFFFF;
-  --color-mutedgold: #E2C044;
+  --color-deepgreen: #1b352c;
+  --color-forestgreen: #2e5e4e;
+  --color-purewhite: #ffffff;
+  --color-mutedgold: #e2c044;
 }
 
+@tailwind utilities;

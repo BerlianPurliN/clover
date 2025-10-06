@@ -1,19 +1,27 @@
 @extends('layouts.app')
 
 @push('button-login')
-<a href="{{ route('loginpage') }}" class="text-white bg-forestgreen font-semibold rounded-xl text-sm px-6 py-3 text-center">Login</a>
+
+@guest
+<a href="{{ route('loginpage') }}" class="text-white bg-forestgreen font-semibold rounded-xl text-sm px-6 py-3 text-center">
+    Login
+</a>
+@endguest
+
+
 @endpush
 
 @section('content')
 
 {{-- Hero Section --}}
-<section class="relative min-h-[calc(100vh-96px)] flex items-center">
+<section class="relative flex">
     <div class="lg:hidden w-full h-full flex">
 
+        {{-- Screen Mobile --}}
         <div class="w-[45%] relative">
             <div id="hero-carousel-mobile" class="relative w-full h-full" data-carousel="slide">
                 <div class="relative h-full overflow-hidden">
-                    <div class="hidden duration-1000 ease-in-out" data-carousel-item>
+                    <!-- <div class="hidden duration-1000 ease-in-out" data-carousel-item>
                         <img src="{{ asset('assets/img/carousel/carousel-1.png') }}"
                             class="absolute block w-full h-full object-cover"
                             alt="Slide 1">
@@ -30,14 +38,19 @@
                             class="absolute block w-full h-full object-cover"
                             alt="Slide 3">
                         <div class="absolute inset-0 bg-gradient-to-r from-transparent to-white/30"></div>
-                    </div>
+                    </div> -->
+
+                    <img src="{{ asset('assets/img/carousel/carousel.png') }}"
+                        class="absolute block w-full h-full object-cover"
+                        alt="Slide 1">
+                    <div class="absolute inset-0 bg-gradient-to-r from-transparent to-white/30"></div>
                 </div>
 
-                <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-1.5 z-30">
+                <!-- <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-1.5 z-30">
                     <button type="button" class="w-1.5 h-1.5 rounded-full bg-white" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
                     <button type="button" class="w-1.5 h-1.5 rounded-full bg-white/50" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
                     <button type="button" class="w-1.5 h-1.5 rounded-full bg-white/50" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
-                </div>
+                </div> -->
             </div>
         </div>
 
@@ -66,10 +79,11 @@
         </div>
     </div>
 
+    {{-- Screen Monitor --}}
     <div class="hidden lg:block absolute inset-0 z-0">
-        <div id="hero-carousel" class="relative w-full h-full" data-carousel="slide">
+        <div id="hero-carousel" class="relative w-full h-80" data-carousel="slide">
             <div class="relative h-full overflow-hidden">
-                <div class="hidden duration-1000 ease-in-out" data-carousel-item>
+                <!-- <div class="hidden duration-1000 ease-in-out" data-carousel-item>
                     <img src="{{ asset('assets/img/carousel/carousel-1.png') }}"
                         class="absolute block w-full h-full object-cover"
                         alt="Slide 1">
@@ -86,14 +100,19 @@
                         class="absolute block w-full h-full object-cover"
                         alt="Slide 3">
                     <div class="absolute inset-0 bg-white/40"></div>
-                </div>
+                </div> -->
+
+                <img src="{{ asset('assets/img/carousel/carousel.png') }}"
+                    class="absolute block w-full h-full object-cover"
+                    alt="Slide 1">
+                <div class="absolute inset-0 bg-gradient-to-r from-transparent to-white/30"></div>
             </div>
 
-            <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2 z-30">
+            <!-- <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2 z-30">
                 <button type="button" class="w-2 h-2 rounded-full bg-forestgreen" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
                 <button type="button" class="w-2 h-2 rounded-full bg-forestgreen/50" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
                 <button type="button" class="w-2 h-2 rounded-full bg-forestgreen/50" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
-            </div>
+            </div> -->
         </div>
     </div>
 
@@ -120,7 +139,7 @@
     </div>
 </section>
 
-<section class="py-16 text-center">
+<section class="py-20 text-center">
     <h2 class="text-4xl font-bold text-mutedgold mb-8 sm:mb-28">SERVICES</h2>
     <div class="flex flex-row justify-center gap-5 sm:gap-56">
         <div class="flex flex-col items-center">

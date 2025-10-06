@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CustomerDashboardController;
+use App\Http\Controllers\QuestionnaireController;
 
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
@@ -37,10 +39,22 @@ Route::middleware('guest')->group(function () {
 
 Route::middleware(['auth', 'verified'])->group(function () {
 
-    Route::get('/dashboard', function () {
-        return view('pages.dashboard.customer.index');
-    })->name('customer.dashboard');
 
+    // Dashboard Customer
+    Route::get('/dashboard', [CustomerDashboardController::class, 'index'])->name('customer.dashboard');
+    Route::patch('/profile/update', [CustomerDashboardController::class, 'update'])->name('customer.profile.update');
+
+    Route::get('/questionnaire', [QuestionnaireController::class, 'index'])->name('questionnaire.index');
+    Route::post('/questionnaire', [QuestionnaireController::class, 'store'])->name('questionnaire.store');
+
+
+    Route::get('/additional-question', function () {
+        return view('pages.dashboard.customer.optional.index');
+    })->name('customer.optional')->middleware('role:customer');;
+
+
+
+    // Dashboard Admin
     Route::get('/admin/dashboard', function () {
         return view('pages.dashboard.admin.index');
     })->name('admin.dashboard')->middleware('role:admin');

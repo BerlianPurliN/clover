@@ -14,6 +14,8 @@
         @include('components.navbar')
     </div>
 
+    @yield('sidebar')
+
     <main>
         @yield('content')
     </main>
