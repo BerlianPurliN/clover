@@ -39,7 +39,7 @@
                 <form class="d-inline" method="POST" action="{{ route('verification.send') }}">
                     @csrf
                     <button type="submit" class="w-full bg-[#3b5440] text-white font-bold py-3 px-6 rounded-full hover:bg-opacity-90 transition-all text-lg">
-                        Kirim Ulang Email Verifikasi
+                        Kirim Email Verifikasi
                     </button>
                 </form>
 
