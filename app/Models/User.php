@@ -3,14 +3,18 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Spatie\Activitylog\Traits\LogsActivity;
+use Spatie\Activitylog\LogOptions;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
-    /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable;
+    use HasFactory, Notifiable, LogsActivity;
 
     /**
      * The attributes that are mass assignable.
@@ -21,6 +25,12 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'nickname',
+        'mobile_phone',
+        'gender',
+        'dob',
+        'role',
+        'profile_picture'
     ];
 
     /**
@@ -44,5 +54,20 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+    public function questionnaire(): HasOne
+    {
+        return $this->hasOne(Questionnaire::class);
+    }
+    public function appointments(): HasMany
+    {
+        return $this->hasMany(Appointment::class);
+    }
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::defaults()
+            ->logOnly(['name', 'email', 'role']) // Hanya catat perubahan pada kolom ini
+            ->setDescriptionForEvent(fn(string $eventName) => "User has been {$eventName}")
+            ->logOnlyDirty(); // Hanya catat jika ada perubahan
     }
 }

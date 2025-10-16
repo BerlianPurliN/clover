@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 @import "flowbite/src/themes/default";
 
 @plugin "flowbite/plugin";
@@ -10,9 +10,63 @@
 @source "../../node_modules/flowbite";
 
 @theme {
-  --color-deepgreen: #1B352C;
-  --color-forestgreen: #2E5E4E;
-  --color-purewhite: #FFFFFF;
-  --color-mutedgold: #E2C044;
+  --color-deepgreen: #1b352c;
+  --color-forestgreen: #2e5e4e;
+  --color-purewhite: #ffffff;
+  --color-mutedgold: #e2c044;
 }
 
+@tailwind utilities;
+
+/* Custom styles */
+.btn-submit {
+  background-color: #1c3f31;
+  font-size: 0.75rem;
+  color: #fff; /* text-white */
+  padding-left: 1.5rem; /* px-6 */
+  padding-right: 1.5rem;
+  padding-top: 0.75rem; /* py-3 */
+  padding-bottom: 0.75rem;
+  border-radius: 0.5rem; /* rounded-lg */
+  transition: background-color 0.2s, color 0.2s, outline 0.2s; /* transition */
+  width: 100%; /* w-full */
+  text-align: center; /* text-center */
+  cursor: pointer; /* cursor-pointer */
+  font-weight: 600; /* font-semibold */
+}
+@media (min-width: 768px) {
+  .btn-submit {
+    font-size: 1.125rem;
+  }
+}
+.btn-submit:hover {
+  background-color: #fff; /* hover:bg-white */
+  color: #1c3f31; /* hover:text-[#1c3f31] */
+  outline: 2px solid #1c3f31; /* hover:outline-2 */
+}
+
+.btn-reset {
+  background-color: grey;
+  font-size: 0.75rem;
+  color: #fff; /* text-white */
+  padding-left: 1.5rem; /* px-6 */
+  padding-right: 1.5rem;
+  padding-top: 0.75rem; /* py-3 */
+  padding-bottom: 0.75rem;
+  border-radius: 0.5rem; /* rounded-lg */
+  transition: background-color 0.2s, color 0.2s, outline 0.2s; /* transition */
+  width: 100%;
+  text-align: center; /* text-center */
+  cursor: pointer; /* cursor-pointer */
+  font-weight: 600; /* font-semibold */
+}
+@media (min-width: 768px) {
+  .btn-reset {
+    font-size: 1.125rem;
+  }
+}
+.btn-reset:hover {
+  background-color: #fff; /* hover:bg-white */
+  color: #1c3f31; /* hover:text-[#1c3f31] */
+  outline: 2px solid #1c3f31; /* hover:outline-2 */
+}

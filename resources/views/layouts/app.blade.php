@@ -6,13 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite('resources/css/app.css')
     @stack('styles')
-    <title>@yield('title', 'My App')</title>
+    <title>@yield('title', 'Clover')</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 
 <body class="bg-deepwhite">
+
     <div class="sticky top-0 z-50 bg-purewhite">
         @include('components.navbar')
     </div>
+
+
+    @yield('sidebar')
 
     <main>
         @yield('content')
