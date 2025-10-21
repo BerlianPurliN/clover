@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\CombinedUsersExport;
 use App\Http\Controllers\Controller;
-use App\Models\User; // <-- Impor model User
+use App\Models\User;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class UserController extends Controller
 {
@@ -56,5 +58,17 @@ class UserController extends Controller
         // Laravel otomatis menemukan user berdasarkan ID di URL.
         // Kita juga bisa langsung mengakses data kuesionernya melalui relasi.
         return view('pages.dashboard.admin.users.show', compact('user'));
+    }
+
+    public function exportAll(Request $request)
+    {
+        // Ambil semua filter dari URL
+        $filters = $request->only(['search', 'gender', 'created_from', 'created_to']);
+
+        // Buat nama file yang dinamis
+        $fileName = 'all_users_data_' . now()->format('Y-m-d') . '.xlsx';
+
+        // Panggil class export "master" dan mulai download
+        return Excel::download(new CombinedUsersExport($filters), $fileName);
     }
 }

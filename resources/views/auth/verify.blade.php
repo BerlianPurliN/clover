@@ -27,7 +27,7 @@
             @endif
 
             <p class="text-gray-600 mb-6">
-                Sebelum melanjutkan, silakan periksa email Anda untuk menemukan link verifikasi. Email telah dikirim ke <strong class="text-gray-800">{{ Auth::user()->email }}</strong>.
+                Sebelum melanjutkan, silakan cek email verifikasi di inbox atau spam Anda untuk menemukan link verifikasi. Email telah dikirim ke <strong class="text-gray-800">{{ Auth::user()->email }}</strong>.
             </p>
 
             <p class="text-gray-600 mb-8">
@@ -38,7 +38,7 @@
                 {{-- Form untuk mengirim ulang email verifikasi --}}
                 <form class="d-inline" method="POST" action="{{ route('verification.send') }}">
                     @csrf
-                    <button type="submit" class="w-full bg-[#3b5440] text-white font-bold py-3 px-6 rounded-full hover:bg-opacity-90 transition-all text-lg">
+                    <button type="submit" class="w-full bg-[#3b5440] hover:bg-white hover:text-[#3b5440] hover:outline-2 text-white font-bold py-3 px-6 rounded-full hover:bg-opacity-90 transition-all cursor-pointer text-lg">
                         Kirim Email Verifikasi
                     </button>
                 </form>

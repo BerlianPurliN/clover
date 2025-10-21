@@ -77,6 +77,13 @@
                         <div>
                             <p class="font-semibold text-gray-800">{{ \Carbon\Carbon::parse($appointment->appointment_date)->format('l, d F Y') }}</p>
                             <p class="text-sm text-gray-500">at {{ \Carbon\Carbon::parse($appointment->appointment_date)->format('H:i') }}</p>
+
+                            @if ($appointment->admin_notes)
+                            <div class="mt-3 p-3 bg-yellow-50 border-l-4 border-yellow-400 rounded-r-md">
+                                <p class="text-xs uppercase tracking-wider font-bold text-yellow-700">Catatan dari Admin</p>
+                                <p class="text-sm text-gray-700 mt-1">{{ $appointment->admin_notes }}</p>
+                            </div>
+                            @endif
                         </div>
                         <div>
                             @php
@@ -99,6 +106,7 @@
                                 {{ $appointment->status }}
                             </span>
                         </div>
+
                     </div>
                     @empty
                     <p class="text-gray-500 text-center">You have no appointment history yet.</p>

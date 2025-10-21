@@ -1,8 +1,6 @@
 @extends('layouts.app')
 
-@push('button-login')
-<a href="{{ route('login') }}" class="text-white bg-forestgreen font-semibold rounded-xl text-sm px-6 py-3 text-center">Login</a>
-@endpush
+
 
 @section('content')
 
@@ -86,7 +84,8 @@
                 <div>
                     <label for="password" class="block font-semibold text-md text-[#3b5440]">Password</label>
                     <input id="password" type="password" name="password" required
-                        class="w-full bg-transparent border-0 border-b-2 border-[#5e7c64] focus:ring-0 focus:border-[#3b5440] py-2 text-md">
+                        class="w-full bg-transparent border-0 border-b-2 border-[#5e7c64] focus:ring-0 focus:border-[#3b5440] py-2 text-md"
+                        pattern="\d{4}">
                     @error('password')
                     <span class="text-red-500 text-sm mt-1">{{ $message }}</span>
                     @enderror

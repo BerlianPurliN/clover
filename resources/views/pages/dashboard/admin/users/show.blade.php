@@ -7,7 +7,7 @@
     <main class="flex-1 p-4 md:p-8">
         <div class="flex justify-between items-center mb-6">
             <h1 class="text-2xl font-bold text-[#1c3f31]">User Detail: {{ $user->name }}</h1>
-            <a href="{{ url()->previous() }}" class="bg-[#1c3f31] p-2 rounded-lg text-white hover:text-black hover:bg-white">&larr; Back</a>
+            <a href="{{ url()->previous() }}" class="bg-[#1c3f31] p-2 rounded-lg text-white hover:text-black hover:bg-white hover:outline-2">&larr; Back</a>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">

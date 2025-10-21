@@ -20,6 +20,8 @@ Route::get('/', function () {
     return view('pages.homepage.index');
 })->name('home');
 
+Route::get('/coba-export', [UserController::class, 'exportAll'])->name('coba.export');
+
 Route::get('/about-us', function () {
     return view('pages.aboutus.index');
 });
@@ -66,15 +68,17 @@ Route::middleware(['auth', 'verified'])->group(function () {
 // Dashboard Admin
 Route::middleware(['auth', 'verified', 'role:admin'])->prefix('admin')->name('admin.')->group(function () {
 
+    Route::get('/users/export', [UserController::class, 'exportAll'])->name('users.export');
+
     Route::prefix('manage')->name('manage.')->group(function () {
 
         Route::get('/users', [UserController::class, 'index'])->name('users.index');
         Route::get('/users/{user}', [UserController::class, 'show'])->name('users.show');
+        // Route::get('/users/export', [UserController::class, 'exportAll'])->name('users.export');
 
         Route::get('/appointments', [AppointmentAdminController::class, 'index'])->name('appointments.index');
         Route::patch('/appointments/{appointment}', [AppointmentAdminController::class, 'update'])->name('appointments.update');
         Route::get('/appointments/export', [AppointmentController::class, 'export'])->name('appointments.export');
-        
     });
     Route::get('/audit-logs', [AuditLogController::class, 'index'])->name('audit_logs');
 });

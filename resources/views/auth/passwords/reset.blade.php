@@ -17,7 +17,7 @@
             <input id="password-confirm" type="password" name="password_confirmation" required class="w-full border border-gray-300 rounded-lg p-3">
         </div>
         <div class="mt-6">
-            <button type="submit" class="w-full bg-[#1c3f31] text-white py-3 rounded-lg">Reset Password</button>
+            <button type="submit" class="w-full bg-[#1c3f31] hover:bg-white hover:text-[#3b5440] hover:outline-2 text-white py-3 rounded-lg">Reset Password</button>
         </div>
     </form>
 </div>

@@ -12,9 +12,9 @@
         <div class="bg-white md:p-6 p-1 rounded-lg shadow-lg">
 
             <form method="GET" action="{{ route('admin.manage.users.index') }}" class="mb-6">
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {{-- Kolom Search --}}
-                    <div class="md:col-span-2">
+                    <div class="md:col-span-1">
                         <label for="search" class="sr-only">Search</label>
                         <input type="text" name="search" id="search" class="text-xs w-full border border-gray-300 rounded-lg p-3"
                             placeholder="Search by name, nickname, or email..." value="{{ request('search') }}">
@@ -29,9 +29,13 @@
                         </select>
                     </div>
                     {{-- Tombol --}}
-                    <div class="flex items-center gap-2">
-                        <button type="submit" class="cursor-pointer hover:bg-white hover:text-[#1c3f31] hover:outline-2 text-sm w-full bg-[#1c3f31] text-white font-semibold py-3 px-6 rounded-lg">Filter</button>
-                        <a href="{{ route('admin.manage.users.index') }}" class="hover:bg-white hover:text-[#1c3f31] hover:outline-2 text-sm w-full text-center bg-gray-200 text-gray-700 font-semibold py-3 px-6 rounded-lg">Reset</a>
+                    <div class="flex flex-wrap md:max-w-md items-center justify-center gap-2 mt-4">
+                        <button type="submit" class="bg-[#1c3f31] hover:bg-white hover:text-[#1c3f31] hover:outline-2 text-white font-semibold py-2 px-4 rounded-lg text-xs md:text-sm transition duration-150 ease-in-out">Filter</button>
+                        <a href="{{ route('admin.manage.users.index') }}" class="bg-gray-200 hover:bg-white hover:outline-2 font-semibold py-2 px-4 rounded-lg text-xs md:text-sm transition duration-150 ease-in-out">Reset</a>
+                        <a href="{{ route('admin.users.export', request()->query()) }}"
+                            class="bg-green-600 hover:bg-white hover:outline-2 hover:text-black text-white font-semibold py-2 px-4 rounded-lg text-xs md:text-sm transition duration-150">
+                            Export All to Excel
+                        </a>
                     </div>
                 </div>
             </form>

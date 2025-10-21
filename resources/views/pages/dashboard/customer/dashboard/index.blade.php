@@ -55,8 +55,14 @@
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                         <div>
-                            <label for="birthday" class="block text-xs md:text-lg text-gray-600 font-medium mb-2">Birthday</label>
-                            <input type="text" id="birthday" class="text-xs md:text-lg w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-[#288c64]" value="{{ old( 'dob',$user->dob )}}">
+                            <label for="dob" class="block text-xs md:text-lg text-gray-600 font-medium mb-2">Birthday</label>
+                            {{-- Perbaikan: Menggunakan type="date", name="dob", dan format tanggal yang benar --}}
+                            <input type="date" id="dob" name="dob"
+                                class="text-xs md:text-lg w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-[#288c64]"
+                                value="{{ old('dob', $user->dob ? \Carbon\Carbon::parse($user->dob)->format('Y-m-d') : '') }}">
+                            @error('dob')
+                            <span class="text-red-500 text-sm mt-1">{{ $message }}</span>
+                            @enderror
                         </div>
                         <div>
                             <label for="age" class="block text-xs md:text-lg text-gray-600 font-medium mb-2">Age</label>
@@ -84,7 +90,7 @@
             </form>
         </div>
     </main>
-    
+
 </div>
 
 <script>

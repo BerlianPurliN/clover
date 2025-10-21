@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @push('button-login')
-<a href="{{ route('register') }}" class="text-white bg-forestgreen font-semibold rounded-xl text-sm px-6 py-3 text-center">Register</a>
+<a href="{{ route('register') }}" class="text-white bg-forestgreen hover:bg-white hover:text-[#3b5440] hover:outline-2 font-semibold rounded-xl text-sm px-6 py-3 text-center">Register</a>
 @endpush
 
 @section('content')

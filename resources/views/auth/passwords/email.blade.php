@@ -14,7 +14,7 @@
             @error('email') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
         </div>
         <div class="mt-6">
-            <button type="submit" class="w-full bg-[#1c3f31] text-white py-3 rounded-lg">Send Password Reset Link</button>
+            <button type="submit" class="w-full bg-[#1c3f31] hover:bg-white hover:text-[#3b5440] hover:outline-2 text-white py-3 rounded-lg">Send Password Reset Link</button>
         </div>
     </form>
 </div>

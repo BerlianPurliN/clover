@@ -63,6 +63,14 @@
                 </a>
             </li>
 
+            @guest
+            <li>
+                <a href="{{ route('login') }}" class="flex items-center p-2 text-white rounded-lg hover:bg-green-700">
+                    <span class="ml-3">Login</span>
+                </a>
+            </li>
+            @endguest
+
             @auth
             <li>
                 <a href="{{ Auth::user()->role == 'admin' ? route('admin.manage.appointments.index') : route('customer.dashboard') }}" class="flex items-center p-2 text-white rounded-lg hover:bg-green-700">

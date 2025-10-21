@@ -36,6 +36,7 @@ class CustomerDashboardController extends Controller
             'nickname' => 'required|string|max:255',
             'mobile_phone' => 'required|string|max:20',
             'profile_picture' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'dob' => 'nullable|date',
         ]);
 
         // 3. Handle upload foto profil jika ada
@@ -54,6 +55,7 @@ class CustomerDashboardController extends Controller
         $user->name = $validated['name'];
         $user->nickname = $validated['nickname'];
         $user->mobile_phone = $validated['mobile_phone'];
+        $user->dob = $validated['dob'];
 
         // Simpan semua perubahan ke database
         $user->save();
